@@ -6,6 +6,9 @@ import path from "path";
 // 2. create express app (eerst port declareren, dan app, dan pas de functies)
 const app = express();
 
+// Serve static files
+app.use(express.static("public"));
+
 // 3. Define a route handler for the default home page
 const port = 3000;
 
@@ -16,12 +19,11 @@ app.get("/", (req, res) => {
   res.sendFile(indexHTML);
 });
 
-// POST method route
-app.post("/", (req, res) => {
-  res.send("POST request to the homepage, app runs just fine");
+app.get("/contact", (req, res) => {
+  res.sendFile(path.resolve("src", "views", "index.html"));
 });
 
 // 4. Start the app
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port localhost:${port}`);
 });
