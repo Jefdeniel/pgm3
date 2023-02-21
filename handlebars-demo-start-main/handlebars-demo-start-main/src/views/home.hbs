@@ -1,14 +1,23 @@
 <!-- 
 
   CHEAT SHEET
-  {{ expressie }}
-  {{#block}} {{/block}}
+
+  // expressie 
+  {{ variabele_printen_escaped }}
+  {{{ variabele_printen_unescaped }}}
+
+  // helpers
   {{#each array}} {{/each}}
-  {{#if expressie}} {{/if}}
-  {{#unless expressie}} {{/unless}}
   {{#with object}} {{/with}}
 
+  {{#block}} {{/block}}
+  {{#if expressie}} {{/if}}
+  {{#unless expressie}} {{/unless}}
+
 -->
+
+<!-- partial integreren (naam bestand zonder extensie) -->
+{{> navigation }}
 
 <article>
   <h2>welcome to handlebars,

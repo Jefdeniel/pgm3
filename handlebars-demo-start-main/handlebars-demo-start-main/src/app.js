@@ -36,6 +36,7 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 app.get("/", (req, res) => {
   const data = {
     firstname: "jef",
+    motto: "<strong>I love dino's</strong>",
     person: {
       firstname: "John",
       lastname: "Doe",
@@ -63,6 +64,12 @@ app.get("/", (req, res) => {
         age: 1000000000,
         image: "/assets/images/dino_02.png",
       },
+    ],
+    // navigation
+    links: [
+      { url: "/", title: "Home" },
+      { url: "/trex", title: "T-Rex" },
+      { url: "/bronto", title: "Bronto" },
     ],
   };
   res.render("home", data);
