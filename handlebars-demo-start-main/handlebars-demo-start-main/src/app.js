@@ -4,6 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 dotenv.config();
 import { create } from "express-handlebars";
+import { SOURCE_PATH } from "./constants.js";
 
 // ------------------ Express setup ------------------ //
 
@@ -27,7 +28,7 @@ const hbs = create({
 // register the handlebars engine with express
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
-app.set("views", path.resolve("src", "views"));
+app.set("views", path.join(SOURCE_PATH, "views"));
 
 // ------------------ Routes ------------------ //
 
