@@ -1,1 +1,45 @@
-welcome to handlebars
+<!-- 
+
+  CHEAT SHEET
+  {{ expressie }}
+  {{#block}} {{/block}}
+  {{#each array}} {{/each}}
+  {{#if expressie}} {{/if}}
+  {{#unless expressie}} {{/unless}}
+  {{#with object}} {{/with}}
+
+-->
+
+<article>
+  <h2>welcome to handlebars,
+    {{firstname}}!
+  </h2>
+
+  <blockquote>
+    {{{motto}}}
+    <!-- hier wordt html geëscaped -->
+  </blockquote>
+
+  <!-- Manier 1 -->
+  <p>I would lik you to meet my brother
+    {{person.lastname}}!</p>
+
+  <!-- Manier 2 -->
+  <!-- context -->
+  {{#with partner}}
+    <p>i love my wife: {{firstname}} {{lastname}}</p>
+  {{/with}}
+</article>
+
+<article class="dinos">
+  <h2>I have dinos as friends</h2>
+  <ul>
+    {{#each friends}}
+      <li>
+        <h3> {{name}}</h3>
+        <p> {{age}}</p>
+        <img src="{{image}}" alt="{{name}}" />
+      </li>
+    {{/each}}
+  </ul>
+</article>

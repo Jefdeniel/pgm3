@@ -6,7 +6,7 @@ dotenv.config();
 import { create } from "express-handlebars";
 import { SOURCE_PATH } from "./constants.js";
 
-// ------------------ Express setup ------------------ //
+// ------------------ EXPRESS SETUP ------------------ //
 
 // create an instance of express
 const app = express();
@@ -15,7 +15,7 @@ const app = express();
 // they can be accessed from the root of the site (e.g. /assets/images/dino_07.png) 🦕
 app.use(express.static("public"));
 
-// ------------------ Handlebars setup ------------------ //
+// ------------------ HANDLEBAR SETUP ------------------ //
 
 // create an instance of the handlebars engine
 const hbs = create({
@@ -30,11 +30,42 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(SOURCE_PATH, "views"));
 
-// ------------------ Routes ------------------ //
+// ------------------ ROUTES ------------------ //
 
 // GET route to serve the index.html file
 app.get("/", (req, res) => {
-  res.render("home");
+  const data = {
+    firstname: "jef",
+    person: {
+      firstname: "John",
+      lastname: "Doe",
+      age: 25,
+      address: {
+        street: "123 Main St",
+        city: "New York",
+        state: "NY",
+      },
+      brothers: ["Bob", "Steve", "Joe"],
+    },
+    partner: {
+      firstname: "Jane",
+      lastname: "Doe",
+    },
+
+    friends: [
+      {
+        firstname: "t-rex",
+        age: 1000000000,
+        image: "/assets/images/dino_01.png",
+      },
+      {
+        firstname: "bronto",
+        age: 1000000000,
+        image: "/assets/images/dino_02.png",
+      },
+    ],
+  };
+  res.render("home", data);
 });
 
 app.get("/trex", (req, res) => {
