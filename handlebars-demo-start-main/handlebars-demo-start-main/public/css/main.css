@@ -1,0 +1,14 @@
+/**
+ * Import other CSS
+ */
+
+@import url("reset.css");
+
+h1 {
+  color: red;
+  font-size: 4rem;
+}
+
+.icon {
+  font-size: 10rem;
+}
