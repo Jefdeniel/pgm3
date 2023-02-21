@@ -13,10 +13,11 @@ const app = {
     this.$ulGroceries = document.querySelector("#groceries");
   },
   registerListeners() {
-    this.$inpGrocery.addEventListener("keyup", (e) => {
-      e.preventDefault(); // Voorkomt dat de pagina herlaad
+    this.$inpGrocery.addEventListener("keydown", (e) => {
+      // Voorkomt dat de pagina herlaad
       // Als de gebruiker op enter drukt, voeg de boodschap toe
       if (e.key === "Enter") {
+        e.preventDefault();
         const grocery = this.$inpGrocery.value;
         this.addGrocery(grocery);
         this.$inpGrocery.value = "";
