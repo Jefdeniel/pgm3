@@ -1,0 +1,13 @@
+:root {
+  --color-black: hsl(0, 0%, 0%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+h1 {
+  color: red;
+}
