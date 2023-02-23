@@ -21,4 +21,30 @@ export default {
       return `<button type="button">${options.fn()}</button>`;
     }
   },
+
+  sum: (a, b) => a + b,
+
+  customIf: (condition, options) => {
+    if (condition) {
+      return options.fn();
+    } else {
+      return options.inverse();
+    }
+  },
+
+  isEq: (a, b) => {
+    return a === b;
+  },
+
+  isNotEq: (a, b) => {
+    return a !== b;
+  },
+
+  customEach: (list, options) => {
+    const renderedHtml = [];
+    for (const item of list) {
+      return renderedHtml.push(options.fn(item));
+    }
+    return renderedHtml.join("");
+  },
 };
