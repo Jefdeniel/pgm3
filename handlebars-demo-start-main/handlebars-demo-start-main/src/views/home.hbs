@@ -45,8 +45,32 @@
   <ul>
     {{#each friends}}
       <li>
-        <h3> {{name}}</h3>
-        <p> {{age}}</p>
+        {{#if name}}
+          <h3> {{name}}</h3>
+
+          {{#em}}
+          Dit is een test 
+          {{/em}}
+        {{else}}
+          <h3>Unknown</h3>
+        {{/if}}
+        <p> age: {{age}}</p>
+        <img src="{{image}}" alt="{{name}}" />
+      </li>
+    {{/each}}
+  </ul>
+</article>
+
+<article class="dinos">
+  <h2>I have dinos as friends</h2>
+  <ul>
+    {{#each friends}}
+      <li>
+          <h3> {{name}}</h3>
+        {{#unless name}}
+          <h3>Unknown</h3>
+          {{/unless}}
+        <p> age: {{age}}</p>
         <img src="{{image}}" alt="{{name}}" />
       </li>
     {{/each}}

@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { create } from "express-handlebars";
 import { SOURCE_PATH } from "./constants.js";
+import HandlebarsHelpers from "./lib/HandlebarsHelpers.js";
 
 // ------------------ EXPRESS SETUP ------------------ //
 
@@ -19,6 +20,7 @@ app.use(express.static("public"));
 
 // create an instance of the handlebars engine
 const hbs = create({
+  helpers: HandlebarsHelpers,
   extname: "hbs",
   // defaultLayout: "main",
   // layoutsDir: path.resolve("src", "views", "layouts"),
